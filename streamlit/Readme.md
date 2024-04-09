@@ -23,6 +23,8 @@ To get started with these examples, you need to have Python installed on your sy
    cd ./AI-Learning/AIResearch/streamlit
    ```
 
+4. Set up virtual environment and activate it
+
 3. Install the required packages:
 
    ```
@@ -34,7 +36,7 @@ To get started with these examples, you need to have Python installed on your sy
 To run a Streamlit app, navigate to the app's directory and use the `streamlit run` command followed by the script name. For example:
 
 ```
-streamlit run app.py
+streamlit run ChatBotWithStreaming.py
 ```
 
 ## Examples Overview
