@@ -7,6 +7,7 @@ if "messages" not in st.session_state:
     st.session_state.messages = []
 
 
+
 # A way to store the chat history so we can display it 
 # in the chat message containers. We can use a list to 
 # store the messages, and append to it every time the 

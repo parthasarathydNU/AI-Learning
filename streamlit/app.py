@@ -5,6 +5,7 @@
 import streamlit as st
 import numpy as np
 
+
 # Every time we update any element / input 
 # this entire script is run from top to bottom
 
