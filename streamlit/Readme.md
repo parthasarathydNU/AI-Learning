@@ -41,9 +41,11 @@ streamlit run ChatBotWithStreaming.py
 
 ## Examples Overview
 
-- **Basic Chatbot**: This example demonstrates a simple chatbot that responds to user inputs with predefined answers.
-- **AI-based Chatbot**: An advanced example showcasing an AI-powered chatbot capable of more dynamic interactions.
-- **Interactive Chatbot**: Illustrates how to create a chatbot with which users can interact through buttons and text input.
+- **[Basic Chatbot](./ChatBotWithStreaming.py)**: This example demonstrates a simple chatbot that responds to user inputs with predefined answers.
+- **[AI-based Chatbot](./OpenAIChatBot.py)**: An advanced example showcasing an AI-powered chatbot capable of more dynamic interactions. ![Testing out Open AI](Videos/testingOutOpenAI.gif)
+
+
+
 
 ## How to Use
 
