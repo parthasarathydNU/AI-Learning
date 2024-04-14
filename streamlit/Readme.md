@@ -23,12 +23,12 @@ To get started with these examples, you need to have Python installed on your sy
    cd ./AI-Learning/AIResearch/streamlit
    ```
 
-3. Set Up Virtual Environment 
+3. Set Up and activate Virtual Environment 
 
 4. Install the required packages:
 
    ```
-   pip install -r requirements.txt
+   python3 -m pip install -r requirements.txt
    ```
 
 ### Running the Examples
@@ -43,6 +43,7 @@ streamlit run ChatBotWithStreaming.py
 
 - **[Basic Chatbot](./ChatBotWithStreaming.py)**: This example demonstrates a simple chatbot that responds to user inputs with predefined answers.
 - **[AI-based Chatbot](./OpenAIChatBot.py)**: An advanced example showcasing an AI-powered chatbot capable of more dynamic interactions. ![Testing out Open AI](Videos/testingOutOpenAI.gif)
+- **[LangChainExperiments](./LangChainChatBot.py)
 
 
 
