@@ -220,3 +220,89 @@ You can find more details and resources in the slide decks provided in the link:
 ```
 
 We see this is exactly able to retrieve relevant content from the document that we have passed!!
+
+## Integrating retrieval into the conversation chain
+
+Now instead of having a separate step for retrieving and injecting the context into the next message, we create a chain that does it as one of the intermediate steps. This is a powerful think, because we can fetch relevant context for all of the user's messages and then pass it as context along with all the previous messages in the interaction for the LLM to be able to generate a contextualized response. Here the amount of data available to generate plays a role in the accuracy and usefulness of information available for the LLM to generate answers. 
+
+
+The code looks like this : 
+```python
+def parse_retriever_input(params: Dict):
+    # retrieving the latest message that we pass in from the user
+    return params["messages"][-1].content
+
+retrieval_chain = RunnablePassthrough.assign(
+    context= parse_retriever_input | retriever,
+).assign(
+    answer=document_chain,
+)
+
+response = retrieval_chain.invoke(
+    {
+        # here the latest message will be the question that was asked
+        "messages": demo_ephemeral_chat_history.messages, 
+    }
+)
+
+print(response)
+```
+
+And this is how the output looks like : 
+```
+{
+    'messages': [
+        HumanMessage(
+            content='What are the topics covered under the introduction to generative AI slide decks'
+            )
+    ], 
+    'context': [
+        Document(
+            page_content='### **References and Further Reading**..../Readme.md'
+            }
+        )
+    ], 
+    'answer': 'The introduction to generative AI slide decks cover the following topics:\n\n1. Generative AI: Foundations and Use Cases\n2. Before Transformers: Evolution of Text Generation\n3. Deep Dive into Transformer Architecture\n4. Generating Text with Transformers\n5. Lifecycle of a Generative AI Project\n6. Quiz questions\n7. References\n\nYou can find more details and resources on these topics in the slide decks provided in the project planning.'
+    
+}
+```
+
+By looking at the above output we can understand how this works. As per code, the retrieval chain is invoked on the message, but internally it has been assigned a RunnablePassthrough which also takes in the message and assigns it to the retriever chain and then passes it to the document_chain. 
+
+The retriever_chain is the one that takes in the prompt and fetches relevant data form the in memory database, and the document chain is the one that has been given the instructions on what to do with the retrieved data. Here it has been instructed to do the following: "Answer the user's questions based on the below context:\n\n{context}",
+
+### Skip Printing the intermetidate steps
+
+To avoid printing the intermediate steps in the retrieval process, we can use a slightly different of the way wer define the RunnablePassthrough.
+
+Instead of explicitly calling out the assign key word, we can directly use a "|" operator to chain the `document_chain` along with the passthrough to just see the output. 
+
+```python
+retrieval_chain_2 = (
+    RunnablePassthrough.assign( context= parse_retriever_input | retriever ) | 
+    document_chain
+)
+
+response2 = retrieval_chain_2.invoke(
+    {
+        # here the latest message will be the question that was asked
+        "messages": demo_ephemeral_chat_history.messages, 
+    }
+)
+
+print(response2)
+```
+
+Output: 
+```
+The topics covered under the introduction to generative AI slide decks are:
+- Generative AI: Foundations and Use Cases
+- Before Transformers: Evolution of Text Generation
+- Deep Dive into Transformer Architecture
+- Generating Text with Transformers
+- Lifecycle of a Generative AI Project
+- Quiz questions
+- References
+
+You can find more details and resources on these topics in the slide decks provided in the project planning.
+````
