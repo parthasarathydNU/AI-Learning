@@ -1,0 +1,39 @@
+To create an AI-Powered Application with Vector Database and LLM Integration
+
+You can work on Otto von Smarypants https://github.com/nikbearbrown/AI4ED/blob/main/Otto_von_SmartyPants/README.mdLinks to an external site. or your own 
+
+The goal of this assignment is to develop a domain-specific application that combines the strengths of a Large Language Model (LLM) for understanding and processing natural language queries with the efficiency of a vector database for data storage and retrieval. You have the flexibility to choose between creating a semantic search engine, a responsive chatbot, or a personalized recommendation system, each focusing on a specific domain of your interest.
+
+Objective:
+
+To understand the process of integrating LLMs with vector databases.
+To gain hands-on experience in designing and implementing a real-world application that leverages AI for semantic understanding and efficient data handling.
+Tasks: 
+
+1. Domain Selection: Choose a specific domain for your application. Clearly define the scope and type of data your application will handle.
+
+2. Data Collection and Preprocessing: Acquire data relevant to your chosen domain by either webscraping or utilizing dynamic data sources. The dataset should contain textual data that can be indexed in the vector database. Preprocess the dataset to clean and prepare the data for indexing. This includes removing any irrelevant information, handling missing data, and ensuring the text is in a suitable format for the LLM.
+
+Ensure the dataset is large enough to showcase your application's functionality.
+
+3. Vector Database Implementation:
+
+Choose a vector database suitable for your application needs (e.g., Milvus, Pinecone, or Weaviate).
+Store your preprocessed dataset in the vector database, ensuring that data is indexed in a way that supports efficient retrieval based on semantic similarity or other relevant criteria.
+4. Application Development:
+
+Develop your application with a user interface that allows users to input natural language queries or preferences.
+Implement the backend logic to use the LLM for query processing and the vector database for data retrieval, ensuring the system returns relevant and accurate results or responses.
+5. Evaluation and Testing:
+
+Test your application thoroughly with various queries or inputs to evaluate its performance and accuracy.
+You can use the following:
+
+Vector Database: Choose from options like Weaviate, Pinecone, Milvus.
+LLMs: Use OpenAI models or any other similar or open-source models for generating responses and embeddings.
+API Keys: NVIDIA, OpenAI, and Gemini Pro for accessing AI models and services. 
+Frontend: Streamlit for the chat interface.
+Additional guidelines:
+
+Submit your assignment by pushing the source code, documentation, and any additional resources to a GitHub repository.
+Include a README.md in the repository with detailed instructions, along with an overview of your application's features.
