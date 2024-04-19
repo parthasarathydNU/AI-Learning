@@ -12,7 +12,8 @@ flipped_interaction_prompt = "You are an expert in rubric generation for any giv
                              "questions regarding the user to understand more about their personal as well. Finally " \
                              "based on the gathered preferences, use the persona pattern to take the persona of the " \
                              "user and generate a rubric that matches their style. Start by greeting the user and ask " \
-                             "one question at a time. "
+                             "one question at a time. Ask the first question about what is the type of assignment " \
+                             "they want help with."
 
 
 # Set OpenAI API key from Streamlit secrets
@@ -25,6 +26,7 @@ if "openai_model" not in st.session_state:
 # Initialize chat history
 if "messages" not in st.session_state:
     st.session_state.messages = []
+
 
 if "intro_message_displayed" not in st.session_state:
     st.session_state["intro_message_displayed"] = None
